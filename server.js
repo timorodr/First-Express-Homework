@@ -47,8 +47,8 @@ app.get("/", (req, res) => {
 app.get("/:number_of_bottles", (req, res) => {
     const number = Number(req.params.number_of_bottles)
     const messageText = `${number} of bottles of beer on the wall`
-    const takeOneDown = Math.abs(number - 1)
-    if(takeOneDown === 0) {
+    const takeOneDown = number - 1
+    if(number === 0) {
         res.send(`<a href="/">Start Over</a>`)
     }
     console.log(typeof number)
