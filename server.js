@@ -33,3 +33,29 @@ app.get("/magic/:question", (req, res) => {
     <h1>${answer}</h1>
     `)
 })
+
+
+//*************************** TAKE ONE DOWN AND PASS IT AROUND */
+
+
+app.get("/", (req, res) => {
+    // const number = req.params.number
+    res.send(`<h1>99 bottles of beer on the wall</h1>
+    <a href="/98">Take one down, pass it around</a>`)
+})
+
+app.get("/:number_of_bottles", (req, res) => {
+    const number = Number(req.params.number_of_bottles)
+    const messageText = `${number} of bottles of beer on the wall`
+    const takeOneDown = Math.abs(number - 1)
+    if(takeOneDown === 0) {
+        res.send(`<a href="/">Start Over</a>`)
+    }
+    console.log(typeof number)
+    res.send(`
+    <h1>${messageText}</h1>
+    <a href="/${takeOneDown}">Take one down, pass it around</a>
+    `
+    )
+})
+// {/* <a href = "localhost:3000/...">99 bottles</a> */}
