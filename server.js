@@ -58,4 +58,3 @@ app.get("/:number_of_bottles", (req, res) => {
     `
     )
 })
-// {/* <a href = "localhost:3000/...">99 bottles</a> */}
